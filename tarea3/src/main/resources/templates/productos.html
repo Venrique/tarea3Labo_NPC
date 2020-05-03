@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Libros</title>
+</head>
+<body>
+
+	<h1>Elija su saga de libros favorita</h1>
+	
+	<form th:action="@{/validar}" method="post" th:object="${product}">
+	
+		<label>Producto: </label>
+		<th>
+			<select th:field="*{id}">
+				<option th:each="p : ${productos}" th:value="${p.id}" th:text="${p.nombre}"></option>
+			</select>
+		</th>
+		<br>
+		<input type="number" th:field="*{cantidad}">
+		<input type="submit" value="Enviar"/>
+	</form>
+
+</body>
+</html>
